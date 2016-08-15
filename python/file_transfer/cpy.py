@@ -69,12 +69,12 @@ if not os.path.exists(source_file):
 	print "File not exist...."
 	exit(1)
 file_name = os.path.splitext(os.path.basename(source_file))
-dst_file_name = file_name[0] +'.7z'
+dst_file_name = file_name[0]+ '-' + time_name +'.7z'
 #temp_file = os.path.join( COMPRESS_TEMP_DIR, dst_file_name )
 temp_file = os.path.join( SHARE_FOLDER, dst_file_name )
 
-#command = '"'+COMPRESS_TOOL+'"'+' a -mx9 -t7z '+temp_file+' '+source_file
-command = '"'+COMPRESS_TOOL+'"'+' a -mx9 -t7z -ao '+temp_file+' '+source_file + ' -y'
+command = '"'+COMPRESS_TOOL+'"'+' a -mx9 -t7z '+temp_file+' '+source_file
+#command = '"'+COMPRESS_TOOL+'"'+' a -mx9 -t7z -ao '+temp_file+' '+source_file + ' -y'
 print command
 ps = subprocess.Popen( command )
 if ps.wait() != 0:
